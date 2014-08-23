@@ -15,25 +15,14 @@
 +(BOOL)isError:(NSDictionary*)dict{
 
     if ([[dict objectForKey:@"err"] isEqualToString:@"1"]) {
-        if ([[dict objectForKey:@"code"] isEqualToString:@"1002"]){
-            //not in use
-            SmallLoginView *loginView=[[[NSBundle mainBundle]loadNibNamed:@"SmallLoginView" owner:nil options:nil] objectAtIndex:0];
-            [loginView addLoginView];
-            return TRUE;
-                   
-        }
-        else if ([[dict objectForKey:@"code"] isEqualToString:@"1100"])
-        {
-            UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"Error" message:[dict objectForKey:@"error"] delegate:[ErrorLookUp class]cancelButtonTitle:@"Ok" otherButtonTitles:@"Email Support",nil];
-            
+      
+            UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"Error" message:[dict objectForKey:@"error"] delegate:[ErrorLookUp class]cancelButtonTitle:@"Ok" otherButtonTitles:@"",nil];
             
             [alertView show];
             [alertView release];
             return TRUE;
-        }
-        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"Error" message:[dict objectForKey:@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alertView show];
-        [alertView release];
+        
+       
     }
     else
     {
