@@ -13,5 +13,4 @@
     
 }
 +(NSMutableArray*)getArrayTag:(NSString*)reqID;
-+(NSMutableArray*)getDicTag:(NSString*)reqID;
 @end
